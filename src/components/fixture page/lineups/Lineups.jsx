@@ -38,7 +38,7 @@ export default function Lineups(props) {
                     {props.awayFormation}
                   </div>
                 </div>
-                <div className='px-2'>
+                <div className='px-0'>
                   <Starting firstTeamId={props.firstTeamId} secondTeamId={props.secondTeamId} homeFormationArray={homeFormationArray} awayFormationArray={awayFormationArray} startingHomeTeam={lineupsHome?.starting_lineups} startingAwayTeam={lineupsAway?.starting_lineups}/>
                 </div>
                 <div className="subtitutes flex flex-col justify-center space-y-5">
