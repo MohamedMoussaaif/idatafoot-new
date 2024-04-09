@@ -1,0 +1,15 @@
+input[type="date"] {
+    /* Set the color of the text */
+    color: white;
+  
+    /* Set the background color of the input */
+    background-color: transparent;
+  
+    /* Add any other styles you need for the input */
+  }
+  
+  /* Target the date input icon */
+  input[type="date"]::before {
+    /* Set the color of the date input icon */
+    color: red; /* Replace with your desired color code */
+  }
