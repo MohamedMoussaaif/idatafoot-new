@@ -70,7 +70,6 @@ const Starting = (props) => {
     });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 
 
-
     
 
     const [state, setState] = useState({
@@ -92,6 +91,7 @@ const Starting = (props) => {
         awayTeamClickable: true
     });
 
+
     const buildSquad = (apiSquad, color, team) => {
         let df = [];
         let cm = [];
@@ -112,10 +112,12 @@ const Starting = (props) => {
             color: `${color}`,
             numberColor: 'white',
         };
+
+        
         
         const positionLineup = (position) => {
             sumFormation = sumFormation + parseInt(teamSelected[position === df ? 0 : position === cm ? 1 : teamSelected.length === 4 && position === cam ? 2 : teamSelected.length === 3 && position === fw ? 2 : teamSelected.length === 3 && position === cam ? -1 : teamSelected.length === 4 && position === fw && 3]);
-            
+            console.log(sumFormation)
             while (i < sumFormation) {
                 let obj = {
                     number: parseInt(apiSquad[i + 1].lineup_number),
@@ -147,7 +149,7 @@ const Starting = (props) => {
 
         positionLineup(df);
         positionLineup(cm);
-        positionLineup(cam);
+        teamSelected.length == 4 && positionLineup(cam);
         positionLineup(fw);
 
         
