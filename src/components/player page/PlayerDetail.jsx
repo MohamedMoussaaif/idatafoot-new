@@ -29,7 +29,7 @@ export default function PlayerDetail() {
     <div className='flex text-white justify-center items-center p-4 lg:px-28 mt-[-7px] lg:py-10 lg:space-x-5'>
           <div className="flex flex-col justify-startcard w-96 p-5 bg-[#1f2937] shadow-xl space-y-5">
             <figure className='flex flex-row space-x-5 items-center'>
-              <img className='bg-[#1f2937] w-full border border-2 border-solid border-[#0097B2] rounded' src={`${playerInfo[playerInfo.length == 1 ? 0 : 1]?.player_image}`} alt="Shoes" />
+              <img className='bg-[#1f2937] w-full border border-2 border-solid border-[#0097B2] rounded' src={`${playerInfo[playerInfo.length == 1 ? 0 : 1]?.player_image}`} />
             </figure>
             <div className="space-y-5">
               <p className='text-xs'>( Note : All stats are only for League )</p>
