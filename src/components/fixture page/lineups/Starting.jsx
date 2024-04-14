@@ -20,7 +20,7 @@ const Starting = (props) => {
             if(selectedHomePlayer){
                 const homeEls = document.getElementsByClassName("player-view");
                 let playername = (selectedHomePlayer?.player_name).split(" ")[((selectedHomePlayer?.player_name).split(" ")).length - 1]
-                homeEls.length ? homeEls[i].innerHTML = `<div class='flex flex-col space-y-1 justify-center text-center items-center text-[7px] lg:text-[10px]'><img class='w-5 lg:w-10' src=${selectedHomePlayer?.player_image} style="border-radius:50%;"/><p class='px-[2px] lg:px-[10px] rounded bg-[#0097B2]'>${playername}</p></div>` : ''
+                homeEls.length ? homeEls[i].innerHTML = `<a href='/player/${selectedHomePlayer?.player_id}'><div class='flex flex-col space-y-1 justify-center text-center items-center text-[7px] lg:text-[10px]'><img class='w-5 lg:w-10' src=${selectedHomePlayer?.player_image} style="border-radius:50%;"/><p class='px-[2px] lg:px-[10px] rounded bg-[#0097B2]'>${playername}</p></div></a>` : ''
             }
           }
         }
@@ -32,7 +32,7 @@ const Starting = (props) => {
                 if(selectedAwayPlayer){
                     const awayEls = document.getElementsByClassName("player-view");
                     let playername = (selectedAwayPlayer?.player_name).split(" ")[((selectedAwayPlayer?.player_name).split(" ")).length - 1]
-                    awayEls.length ? awayEls[i].innerHTML = `<div class='flex flex-col space-y-1 justify-center text-center items-center text-[7px] lg:text-[10px]'><img class='w-5 lg:w-10' src=${selectedAwayPlayer?.player_image} style="border-radius:50%;"/><p class='px-[2px] lg:px-[10px] rounded bg-[#0097B2]'>${playername}</p></div>` : ''
+                    awayEls.length ? awayEls[i].innerHTML = `<a href='/player/${selectedAwayPlayer?.player_id}'><div class='flex flex-col space-y-1 justify-center text-center items-center text-[7px] lg:text-[10px]'><img class='w-5 lg:w-10' src=${selectedAwayPlayer?.player_image} style="border-radius:50%;"/><p class='px-[2px] lg:px-[10px] rounded bg-[#0097B2]'>${playername}</p></div></a>` : ''
                 }
             }
         }
@@ -91,7 +91,6 @@ const Starting = (props) => {
         awayTeamClickable: true
     });
 
-
     const buildSquad = (apiSquad, color, team) => {
         let df = [];
         let cm = [];
@@ -113,11 +112,8 @@ const Starting = (props) => {
             numberColor: 'white',
         };
 
-        
-        
         const positionLineup = (position) => {
             sumFormation = sumFormation + parseInt(teamSelected[position === df ? 0 : position === cm ? 1 : teamSelected.length === 4 && position === cam ? 2 : teamSelected.length === 3 && position === fw ? 2 : teamSelected.length === 3 && position === cam ? -1 : teamSelected.length === 4 && position === fw && 3]);
-            console.log(sumFormation)
             while (i < sumFormation) {
                 let obj = {
                     number: parseInt(apiSquad[i + 1].lineup_number),

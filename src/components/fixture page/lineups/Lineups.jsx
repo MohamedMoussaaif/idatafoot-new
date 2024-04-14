@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Starting from './Starting';
-
-
+import { Link } from 'react-router-dom';
 
 
 export default function Lineups(props) {
@@ -48,11 +47,13 @@ export default function Lineups(props) {
                         <div className="home flex flex-col text-left space-y-5 w-1/2">
                           {
                             lineupsHome?.substitutes?.map((player,index) => (
-                              <div key={index} className='flex flex-row items-center text-left space-x-1 bg-[#1f2937] px-5 py-2 justify-start'>
-                                  <span className='text-[12px]'>{player.lineup_number}</span>
-                                  <img className='w-3' src={props.homeBadge} alt="Home Badge" />
-                                  <span className='text-[12px]'>{player.lineup_player}</span>
-                              </div>
+                              <Link to={`/player/${player.player_key}`} key={index} className='cursor-pointer'>
+                                <div className='flex flex-row items-center text-left space-x-1 bg-[#1f2937] px-5 py-2 justify-start'>
+                                      <span className='text-[12px]'>{player.lineup_number}</span>
+                                      <img className='w-3' src={props.homeBadge} alt="Home Badge" />
+                                      <span className='text-[12px]'>{player.lineup_player}</span>
+                                </div>
+                              </Link>
                             ))
                           }
                             
@@ -61,11 +62,13 @@ export default function Lineups(props) {
                         <div className="away flex flex-col space-y-5 w-1/2">
                         {
                           lineupsAway?.substitutes?.map((player,index) => (
-                          <div key={index} className='flex flex-row items-center text-right space-x-1 bg-[#1f2937] px-5 py-2 justify-end'>
-                              <span className='text-[12px]'>{player.lineup_player}</span>
-                              <img className='w-3' src={props.awayBadge} alt="Away Badge" />
-                              <span className='text-[12px]'>{player.lineup_number}</span>
-                          </div>
+                            <Link key={index} to={`/player/${player.player_key}`} className='cursor-pointer'>
+                              <div className='flex flex-row items-center text-right space-x-1 bg-[#1f2937] px-5 py-2 justify-end'>
+                                    <span className='text-[12px]'>{player.lineup_player}</span>
+                                    <img className='w-3' src={props.awayBadge} alt="Away Badge" />
+                                    <span className='text-[12px]'>{player.lineup_number}</span>
+                              </div>
+                            </Link>
                           ))
                         }
                         </div>
