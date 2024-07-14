@@ -29,14 +29,11 @@ export default function Livescore() {
   }, [currentDate]);
 
 
-  const filteredFixtureInfo = fixtureInfo.filter((fixture) =>
-    fixture.league_id == '3' ||
-    fixture.league_id == '152' ||
-    fixture.league_id == '175' ||
-    fixture.league_id == '207' ||
-    fixture.league_id == '302' ||
-    fixture.league_id == '168'
-  );
+  function filterInfo(fixture){
+      return fixture.league_id == '149'
+  }
+
+  const filteredFixtureInfo =  Array.isArray(fixtureInfo) ? fixtureInfo.filter(filterInfo) : [];
 
   return (
     <div className='pb-3'>
